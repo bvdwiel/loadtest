@@ -5,6 +5,7 @@ This repository contains a bunch of scripts you may use to conduct website load/
 - Siege
 - GnuPlot
 - Awk
+- SQLite 3
 
 Using these scripts comes down to a simple workflow which is automated by having loadtest.sh calling the other scripts in sequence.
 
@@ -14,5 +15,6 @@ In order to loadtest a website, run the loadtest.sh script followed by the URL o
 
 - Run spider.sh on a base URL to gain a collection of URL's you can use to stress test the site.
 - Run dotest.sh on the urls.txt file to perform the actual testing
+- Run parseresults.sh to interpret the results from Siege and store them in a database.
 - Run plottest.sh to process the results into pretty graphs you can include into your shiny reports.
 
