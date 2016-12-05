@@ -1,7 +1,9 @@
 CREATE TABLE IF NOT EXISTS main.results (
-	RT		REAL	NOT NULL,	-- Response time in seconds
+	PROTO		TEXT	NOT NULL,	-- HTTP Protocol used
 	STATUS		INT	NOT NULL,	-- HTTP Response status
-	C		INT	NOT NULL,	-- Concurrency as set by run of Siege command
+	RT		REAL	NOT NULL,	-- Response time in seconds
+	VOL		INT	NOT NULL,	-- Transaction volume in bytes
 	URL		TEXT	NOT NULL,	-- URL of the specific request
-	DATETIME	TEXT	NOT NULL	-- DateTime the request was made
+	DATETIME	TEXT	NOT NULL,	-- DateTime the request was made
+	C		INT	NOT NULL	-- Concurrency value of Siege test
 );
