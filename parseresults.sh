@@ -25,12 +25,12 @@ do
       RT=$(echo $line | cut -f3 -d,)
       URL=$(echo $line | cut -f5 -d,)
       DATETIME=$(echo $line | cut -f7 -d,)
-      $SQLITECMD results.db <<EOS
+      $SQLITECMD results.db <<SQLCommandString
 BEGIN TRANSACTION;
 INSERT INTO main.results (PROTO,STATUS,VOLUME,RT,URL,DATETIME,C)
-  VALUES('$PROTO',$STATUS,$VOLUME,$RT,'$URL','$DATETIME',$cValue); 
+  VALUES('$PROTO',$STATUS,$VOLUME,$RT,'$URL','$DATETIME',$cValue);
 COMMIT TRANSACTION;
-EOS
+SQLCommandString
     fi
   done < $resultfile
 done
