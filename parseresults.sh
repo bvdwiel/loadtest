@@ -9,6 +9,7 @@ if [ -f results.db ]
 then
   rm results.db
 fi
+$SQLITECMD results.db < ddl.sql
 
 for result in c*result.txt
 do
