@@ -15,6 +15,7 @@ $SQLITECMD results.db < ddl.sql
 for resultfile in c*.txt
 do
   echo "Processing data in $resultfile, this may take a while!"
+  echo "BEGIN TRANSACTION; " > queryfile.sql
   cValue="$(grep -o '[0-9][0-9]' <<< $resultfile)"
   while read line; do
     if grep -q  '^HTTP/' <<< $line
@@ -25,12 +26,11 @@ do
       RT=$(echo $line | cut -f3 -d,)
       URL=$(echo $line | cut -f5 -d,)
       DATETIME=$(echo $line | cut -f7 -d,)
-      $SQLITECMD results.db <<SQLCommandString
-BEGIN TRANSACTION;
-INSERT INTO main.results (PROTO,STATUS,VOLUME,RT,URL,DATETIME,C)
-  VALUES('$PROTO',$STATUS,$VOLUME,$RT,'$URL','$DATETIME',$cValue);
-COMMIT TRANSACTION;
-SQLCommandString
+      echo "INSERT INTO main.results (PROTO,STATUS,VOLUME,RT,URL,DATETIME,C) VALUES ('"$PROTO"',$STATUS,$VOLUME,$RT,'"$URL"','"$DATETIME"',$cValue);" >>queryfile.sql
     fi
   done < $resultfile
+  echo "COMMIT TRANSACTION;" >>queryfile.sql
+  $SQLITECMD results.db < queryfile.sql
 done
+rm queryfile.sql
+
