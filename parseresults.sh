@@ -34,3 +34,21 @@ do
 done
 rm queryfile.sql
 
+#-----
+# Average response times in milliseconds at measured concurrency levels
+#-----
+$SQLITECMD results.db <<EOS
+.mode csv
+.output averages.csv
+SELECT (AVG(RT)*1000),C FROM results WHERE STATUS=200 GROUP BY C ORDER BY C ASC;
+EOS
+
+#-----
+# HTP status distribution at measured concurrency levels
+#-----
+$SQLITECMD results.db <<EOS
+.mode csv
+.output httpstatus.csv
+SELECT STATUS,C,COUNT(*) FROM results GROUP BY STATUS,C ORDER BY STATUS;
+EOS
+
