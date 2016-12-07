@@ -15,6 +15,5 @@ if [ -f urls.txt ]
 then
   rm urls.txt
 fi
-$WGETCMD -e robots=off --no-check-certificate -m $1 2>&1 | grep '^--' | awk '{ print $3 }' | grep -v '\.\(\[Cc\]\[Ss\]\[Ss\]\|\[Jj\]\[Ss\]\|\[Pp\]\[Nn\]\[Gg\]\|\[Gg\]\[Ii\]\[Ff\]\|\[Jj\]\[Pp\]\[Gg\]\)' > urls.txt
+$WGETCMD -e robots=off --no-check-certificate -m $1 2>&1 | grep '^--' | awk '{ print $3 }' | grep -v '\.\(css\|js\|jpg\|png\|gif\|CSS\|JS\|JPG\|PNG\|GIF\|php\|PHP\)' > urls.txt
 rm -rf ./$1
-
