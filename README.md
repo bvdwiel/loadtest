@@ -2,7 +2,8 @@
 
 This repository contains a bunch of scripts you may use to conduct website load/stress testing. The scripts depend on a number of underlying tools so make sure you have them installed.
 
-- Siege
+- Bash 4.x shell
+- Siege 4.x
 - GnuPlot
 - Awk
 - SQLite 3
