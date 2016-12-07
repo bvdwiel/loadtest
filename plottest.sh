@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. config
 GNUPLOTCMD=`which gnuplot`
 if [ ! -x $GNUPLOTCMD ]
 then

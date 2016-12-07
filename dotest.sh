@@ -1,18 +1,5 @@
 #!/bin/bash
-#-----
-# START		The lowest value for concurrency to test
-# END		The highest value for concurrency to test
-# INCREMENT	Step-size for the increment between START and END
-# SIEGETIME	Duration of each single run of the Siege command
-#-----
-START=10
-END=160
-INCREMENT=10
-SIEGETIME=5
-
-#-----
-# No user-serviceable parts below this line
-#-----
+. config
 SIEGECMD=`which siege`
 SIEGECMD='/opt/siege/bin/siege'
 if [ ! -x $SIEGECMD ]

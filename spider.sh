@@ -1,4 +1,5 @@
 #!/bin/bash
+. config
 WGETCMD=`which wget`
 AWKCMD=`which awk`
 if [ ! -x $WGETCMD ] 

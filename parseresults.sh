@@ -1,4 +1,5 @@
 #!/bin/bash
+. config
 SQLITECMD=`which sqlite3`
 if [ ! -x $SQLITECMD ]
 then
