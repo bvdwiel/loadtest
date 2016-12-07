@@ -11,4 +11,8 @@ set xrange [0:160]
 set yrange [0:5000]
 set xtics (0,10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160)
 set ytics 500
+set y2range [0:30000]
+set y2label 'Number of HTTP requests per status'
+set arrow from 60,graph(0,0) to 60,graph(1,1) nohead
+set arrow from 120,graph(0,0) to 120,graph(1,1) nohead
 plot "averages.csv" using 2:1 with linespoints ls 1 title 'Response time'
