@@ -16,7 +16,7 @@ for resultfile in c*.txt
 do
   echo "Processing data in $resultfile, this may take a while!"
   echo "BEGIN TRANSACTION; " > queryfile.sql
-  cValue="$(grep -o '[0-9][0-9]' <<< $resultfile)"
+  cValue="$(grep -o -E '[0-9]{2,}' <<< $resultfile)"
   while read line; do
     if grep -q  '^HTTP/' <<< $line
     then
