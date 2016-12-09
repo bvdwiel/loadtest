@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-for i in {$START..$END..$INCREMENT}
+for (( COUNTER=$START; COUNTER<=$END; COUNTER+=$INCREMENT ))
 do
-  $SIEGECMD -f urls.txt -c$i -i -t$SIEGETIMEM > c$i.txt
+  $SIEGECMD -f urls.txt -c$COUNTER -i -t$SIEGETIMEM > c$COUNTER.txt
 done
