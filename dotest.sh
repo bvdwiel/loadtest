@@ -1,5 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . config
+if [ ! -x /usr/bin/which ]
+then
+  echo "Can't find the which utility in /usr/bin or not allowed to use it, aborting."
+  exit 1
+fi
 SIEGECMD=`which siege`
 SIEGECMD='/opt/siege/bin/siege'
 if [ ! -x $SIEGECMD ]

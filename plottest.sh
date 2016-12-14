@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 . config
+if [ ! -x /usr/bin/which ]
+then
+  echo "Can't find the which utility in /usr/bin or not allowed to use it, aborting."
+  exit 1
+fi
 GNUPLOTCMD=`which gnuplot`
 if [ ! -x $GNUPLOTCMD ]
 then

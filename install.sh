@@ -1,7 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+if [ -x ~/.siege ]
+then
+  echo "You already have a .siege directory in your home. Aborting. Check your config manually."
+  exit 1
+fi
 mkdir -p ~/.siege
-if [ -f ~/.siege/siege.conf ]
-  mv ~/.siege/siege.conf ~/.siege/siege.conf_orig
+if [ ! -d ~/.siege ]
+  echo "Something went wrong while creating the .siege directory in your home.. strange. Aborting."
+  exit 1
 fi
 cp siegerc ~/.siege/siege.conf
-echo "Loadtest siege.conf installed into your homedir. Original stashed away as ~/.siege/siege.conf_orig"
+echo "Loadtest siege.conf installed into your homedir."
