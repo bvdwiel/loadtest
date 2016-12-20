@@ -27,6 +27,12 @@ then
   echo "Can't use the awk command. Make sure awk is installed and you have permission to use it."
   exit 1
 fi
+CURLCMD=`which curl`
+if [ ! -x $CURLCMD ]
+then
+  echo "Can't use the curl command. Make sure curl is installed and you have permission to use it."
+  exit 1
+fi
 if [ -f urls.txt ] 
 then
   rm urls.txt
