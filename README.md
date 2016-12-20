@@ -8,6 +8,7 @@ This repository contains a bunch of scripts you may use to conduct website load/
 - GnuPlot
 - Awk
 - SQLite 3
+- Wget
 
 Using these scripts comes down to a simple workflow which is automated by having loadtest.sh calling the other scripts in sequence.
 
@@ -24,6 +25,10 @@ In order to loadtest a website, run the loadtest.sh script followed by the hostn
 - Run _plottest.sh_ to process the results into pretty graphs you can include into your shiny reports.
 
 The spidering, running the test and parsing steps take a significant amount of time so make sure to plan accordingly.
+
+### About urls.txt
+
+The _spider.sh_ script generates two files: _urls.txt_ and _urls\_raw.txt_. By default, the test runs against a clean set of URL's which are all verified to return HTTP status 200 at the time of spidering. This gives the most reliable test of the actual application working under the heaviest possible load. However, this isn't the most realistic simulation of the actual internet. When live, your website is likely to also receive requests which end up hitting redirects and error pages. Such URL's are included in the _urls\_raw.txt_ file. If you want to test this instead, you should run the test steps manually and replace _urls.txt_ with _urls\_raw.txt_ right before you start the _dotest.sh_ script.
 
 ## Warning
 
