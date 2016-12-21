@@ -2,35 +2,35 @@
 . config
 if [ ! -x /usr/bin/which ]
 then
-  echo "Can't find the which utility in /usr/bin or not allowed to use it, aborting."
+  echo "Can't find the which utility in /usr/bin or not allowed to use it, aborting." >&2
   exit 1
 fi
 WGETCMD=`which wget`
 if [ ! -x $WGETCMD ]
 then
-  echo "Can't find the wget command or not allowed to use it, aborting."
+  echo "Can't find the wget command or not allowed to use it, aborting." >&2
   exit 1
 fi
 AWKCMD=`which awk`
 if [ ! -x $AWKCMD ]
 then
-  echo "Can't find the awk command or not allowed to use it, aborting."
+  echo "Can't find the awk command or not allowed to use it, aborting." >&2
   exit 1
 fi
 if [ ! -x $WGETCMD ] 
 then
-  echo "Can't use the wget command. Make sure wget is installed and you have permission to use it."
+  echo "Can't use the wget command. Make sure wget is installed and you have permission to use it." >&2
   exit 1
 fi
 if [ ! -x $AWKCMD ]
 then
-  echo "Can't use the awk command. Make sure awk is installed and you have permission to use it."
+  echo "Can't use the awk command. Make sure awk is installed and you have permission to use it." >&2
   exit 1
 fi
 CURLCMD=`which curl`
 if [ ! -x $CURLCMD ]
 then
-  echo "Can't use the curl command. Make sure curl is installed and you have permission to use it."
+  echo "Can't use the curl command. Make sure curl is installed and you have permission to use it." >&2
   exit 1
 fi
 
@@ -53,7 +53,7 @@ rm -rf ./$1
 #-----
 if [ ! -f urls_raw.txt ]
 then
-  echo "Something went wrong while creating urls_raw.txt, check if wget works properly on your system. Aborting for now."
+  echo "Something went wrong while creating urls_raw.txt, check if wget works properly on your system. Aborting for now." >&2
   exit 1
 fi
 while read URL; do

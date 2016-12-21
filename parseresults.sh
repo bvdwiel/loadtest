@@ -2,13 +2,13 @@
 . config
 if [ ! -x /usr/bin/which ]
 then
-  echo "Can't find the which utility in /usr/bin or not allowed to use it, aborting."
+  echo "Can't find the which utility in /usr/bin or not allowed to use it, aborting." >&2
   exit 1
 fi
 SQLITECMD=`which sqlite3`
 if [ ! -x $SQLITECMD ]
 then
-  echo "Cannot use sqlite3 command. Please check if SQLite3 is installed on this system and you have permission to use it."
+  echo "Cannot use sqlite3 command. Please check if SQLite3 is installed on this system and you have permission to use it." >&2
   exit 1
 fi
 if [ -f results.db ]
