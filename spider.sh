@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 . config
+VALIDATOR='(https?)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+if [[ ! $1 =~ $VALIDATOR ]]
+then
+  echo "$1 is not a valid URL, aborting." >&2
+  exit 1
+fi
 if [ ! -x /usr/bin/which ]
 then
   echo "Can't find the which utility in /usr/bin or not allowed to use it, aborting." >&2
@@ -46,7 +52,6 @@ fi
 # Start the indexer and build urls_raw.txt
 #-----
 $WGETCMD -e robots=off --no-check-certificate -m $1 2>&1 | grep '^--' | awk '{ print $3 }' | grep -v '\.\(css\|js\|jpg\|png\|gif\|CSS\|JS\|JPG\|PNG\|GIF\|php\|PHP\)' > urls_raw.txt
-rm -rf ./$1
 
 #-----
 # Clean up the urls so only 200's remain
