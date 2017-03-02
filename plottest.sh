@@ -16,7 +16,7 @@ then
   echo "File averages.csv not present. Run parseresults.sh to generate it." >&2
   exit 1
 fi
-if [ ! -f httpstatus.csv ]
+if [ ! -f errorrate.csv ]
 then
   echo "File httpstatus.csv not present. Run parseresults.sh to generate it." >&2
 fi
