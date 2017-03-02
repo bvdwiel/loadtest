@@ -15,5 +15,5 @@ fi
 
 for (( COUNTER=$START; COUNTER<=$END; COUNTER+=$INCREMENT ))
 do
-  $SIEGECMD -f urls.txt -c$COUNTER -i -t$SIEGETIMEM > c$COUNTER.txt
+  $SIEGECMD -f urls.txt -c$COUNTER -i -t$SIEGETIME > c$COUNTER.txt
 done
