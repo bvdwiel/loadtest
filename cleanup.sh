@@ -19,3 +19,16 @@ if [ -f results.db ]
 then
   rm results.db
 fi
+if [ -f averages.csv ]
+then
+  rm averages.csv
+fi
+if [ -f errorrate.csv ]
+then
+  rm errorrate.csv
+fi
+if [ -f fit.log ]
+then
+  rm fit.log
+fi
+
