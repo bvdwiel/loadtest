@@ -50,11 +50,10 @@ SELECT (AVG(RT)*1000),C FROM results WHERE STATUS=200 GROUP BY C ORDER BY C ASC;
 EOS
 
 #-----
-# HTP status distribution at measured concurrency levels
+# Aggregate error rate at measured concurrency levels
 #-----
 $SQLITECMD results.db <<EOS
 .mode csv
-.output httpstatus.csv
-SELECT STATUS,C,COUNT(*) FROM results GROUP BY STATUS,C ORDER BY STATUS;
+.output errorrate.csv
+SELECT COUNT(*) AS ERRORCOUNT,C FROM RESULTS WHERE STATUS>399 GROUP BY C;
 EOS
-

@@ -20,5 +20,5 @@ if [ ! -f httpstatus.csv ]
 then
   echo "File httpstatus.csv not present. Run parseresults.sh to generate it." >&2
 fi
-$GNUPLOTCMD averages.gnuplot
+$GNUPLOTCMD statistics.gnuplot
 
