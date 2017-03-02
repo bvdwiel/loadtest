@@ -4,8 +4,7 @@
 # INCREMENT	Step-size for the increment between START and END
 # SIEGETIME	Duration of each single run of the Siege command
 #-----
-START=10
-END=160
-INCREMENT=10
-SIEGETIME=5
-
+START=20
+END=260
+INCREMENT=20
+SIEGETIME=1
