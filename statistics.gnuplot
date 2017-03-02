@@ -22,5 +22,5 @@ g(x) = u*x**v;
 fit g(x) "errorrate.csv" using 2:1 via u, v
 plot "averages.csv" using 2:1 with linespoints ls 1 title 'Response time (y1)' axes x1y1, \
   "errorrate.csv" using 2:1 with linespoints ls 2 title "Error rate (y2)" axes x1y2, \
-  f(x) with lines title sprintf('Response time trend f(x) = %.2f·x^{%.2f} (y2)',a, b), \
+  f(x) with lines title sprintf('Response time trend f(x) = %.2f·x^{%.2f} (y1)',a, b), \
   g(x) with lines title sprintf('Error count trend f(x) = %.2g·x^{%.2g} (y2)',u, v) axes x1y2
