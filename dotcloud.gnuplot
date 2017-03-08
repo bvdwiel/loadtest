@@ -2,7 +2,7 @@ set terminal 'pngcairo' size 1920, 1080
 set output 'dotcloud.png'
 set font "Helvetica, 14"
 set datafile separator ","
-set title "Website stresstest raw results\nhttps://staging.tudelft.nl/" font "Helvetica, 24"
+set title "Website stresstest raw results" font "Helvetica, 24"
 set ylabel "Response time in seconds"
 set xlabel "Time"
 set xdata time

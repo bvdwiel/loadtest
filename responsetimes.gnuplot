@@ -2,7 +2,7 @@ set terminal 'pngcairo' size 1920, 1080
 set output 'responsetimes.png'
 set datafile separator ','
 set font "Helvetica, 14"
-set title "Average response time versus concurrency level\nhttps://staging.tudelft.nl/" font "Helvetica, 24"
+set title "Average response time versus concurrency level" font "Helvetica, 24"
 set xlabel 'Concurrency level (number of simultaneous users)' font "Helvetica, 14"
 set ylabel 'Average response time (milliseconds, logarithmic scale)' font "Helvetica, 14"
 set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 pi -1 ps 1.5
