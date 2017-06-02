@@ -4,8 +4,8 @@ set datafile separator ','
 set font "Helvetica, 14"
 set title "Average response time vs. concurrency" font "Helvetica, 24"
 set xlabel 'Concurrency level (number of simultaneous users)' font "Helvetica, 14"
-set ylabel 'Average response time (ms.)' font "Helvetica, 14"
-set y2label 'Number of requests handled per second.' font "Helvetica, 14"
+set ylabel 'y1: Average response time (ms.)' font "Helvetica, 14"
+set y2label 'y2: Number of requests handled per second.' font "Helvetica, 14"
 set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 pi -1 ps 1.5
 set style line 2 lc rgb '#44A4FF'
 set style line 3 lc rgb '#60ad00' lt 1 lw 2 pt 7 pi -1 ps 1.5
