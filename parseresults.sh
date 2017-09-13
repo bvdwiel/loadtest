@@ -15,6 +15,14 @@ if [ -f results.db ]
 then
   rm results.db
 fi
+SEDCMD=`which sed`
+if [ ! -x $SEDCMD ]
+then
+  echo "Cannot use the sed command. Please check if sed is installed on this system and you have permission to use it." >&2
+fi
+echo "Url-encoding any single-quote characters found in the result set URL's." -i -e s/\'
+$SEDCMD s/%27/g c*.txt
+
 echo "Creating results database in results.db"
 $SQLITECMD results.db < ddl.sql
 
