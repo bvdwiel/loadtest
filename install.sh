@@ -6,6 +6,7 @@ then
 fi
 mkdir -p ~/.siege
 if [ ! -d ~/.siege ]
+then
   echo "Something went wrong while creating the .siege directory in your home.. strange. Aborting." >&2
   exit 1
 fi
