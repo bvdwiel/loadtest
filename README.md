@@ -14,6 +14,20 @@ Using these scripts comes down to a simple workflow which is automated by having
 
 Before you begin testing, make sure you install the included _siegerc_ file into your homedir's _.siege/siege.conf_ file. The included _install.sh_ script takes care of this step for you.
 
+The installer also builds a parseresults binary if it isn't present yet. In order to dramatically speed up the interpretation of data, the parser was rewritten in extremely messy C++. If anyone here who actually *DOES* know what they're doing would refactor this montrosity, please feel free to do so!
+
+For now, however, it does what I need it to do: import a bazillion lines of text into SQLite at good speed.
+
+Make sure you have the following installed on your system before trying to build:
+
+- G++ in a somewhat recent version
+- GNU Make
+- Boost
+- Boost-Filesystem
+- SQLite3 development headers
+
+You might be able to use a precompiled binary from the binaries directory. Proceed at your own risk, though.
+
 ## Usage
 
 In order to loadtest a website, run the loadtest.sh script followed by the hostname of the site or use the component scripts separately if you want more control over the process.

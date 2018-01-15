@@ -12,17 +12,26 @@ using namespace std;
 using namespace boost;
 
 // Store a line from a C-file in the database
-int storeline(vector<string> line, sqlite3* db) {
+int storeline(vector<string> line, char* clevel, sqlite3* db) {
   string query;
   sqlite3_stmt *stmt;
   query = "INSERT INTO results (PROTO,STATUS,VOLUME,RT,URL,DATETIME,C) VALUES('";
-  int counter=0;
-  while ( counter <= 5 ) {
-    query.append(line[counter]);
-    query.append("','");
-    counter++;
-  }
-  query.append("20');");
+  query.append(line[0]); // Proto
+  query.append("','");
+  query.append(line[1]); // Status
+  query.append("','");
+  query.append(line[3]); // Volume
+  query.append("','");
+  query.append(line[2]); // Response time
+  query.append("','");
+  query.append(line[4]); // URL
+  query.append("','");
+  query.append(line[6]); // DATETIME
+  query.append(" ");
+  query.append(line[7]);
+  query.append("','");
+  query.append(clevel);
+  query.append("');");
   sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, NULL);
   sqlite3_step(stmt);
   sqlite3_finalize(stmt);
@@ -75,7 +84,7 @@ int main(int argc, char* argv[])
       data.push_back(t);
     }
     if(data.size() == 8) { //[TODO] Very crude input validation, improve this!!
-      storeline(data, db);
+      storeline(data, argv[1], db);
     }
   }
   // Finalize the transaction and clean up after yourself
