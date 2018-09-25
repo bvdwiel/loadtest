@@ -28,6 +28,16 @@ Make sure you have the following installed on your system before trying to build
 
 You might be able to use a precompiled binary from the binaries directory. Proceed at your own risk, though.
 
+## Platform compatibility
+
+## Fedora 28
+
+You need to install a number of packages before parseresults will compile:
+
+    dnf group install "C Development Tools and Libraries"
+
+    dnf install boost-devel boost-filesystem libstdc++-static sqlite-devel gnuplot siege wget
+
 ## Usage
 
 In order to loadtest a website, run the loadtest.sh script followed by the hostname of the site or use the component scripts separately if you want more control over the process.
