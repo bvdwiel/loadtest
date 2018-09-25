@@ -26,5 +26,5 @@ then
   exit 1
 fi
 
-cp siegerc ~/.siege/siege.conf
+cp ./siegerc ~/.siege/siege.conf
 echo "Loadtest siege.conf installed into your homedir."
