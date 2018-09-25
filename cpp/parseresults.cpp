@@ -74,10 +74,10 @@ int main(int argc, char* argv[])
   ifstream infile(cfile.c_str());
   string line;
   // Wrap the mass of inserts in a single transaction for performance
-  sqlite3_exec(db, "BEGIN TRANSACTION", NULL, NULL, NULL); 
+  sqlite3_exec(db, "BEGIN TRANSACTION", NULL, NULL, NULL);
   // Process the lines
-  vector<string> data;
   while (getline(infile, line)) {
+    vector<string> data;
     char_separator<char> sep(", ");
     tokenizer<char_separator<char>> tokens(line, sep);
     for (const auto& t : tokens) {
