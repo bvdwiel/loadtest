@@ -13,7 +13,7 @@ then
 fi
 if [ ! -x ./parseresults ]
 then
-  echo "Cannot use parseresults binary. See ./cpp directory for more information. You dit run install.sh before using this script, right?" >&2
+  echo "Cannot use parseresults binary. See ./cpp directory for more information. You did run install.sh before using this script, right?" >&2
   exit 1
 fi
 if [ -f results.db ]
